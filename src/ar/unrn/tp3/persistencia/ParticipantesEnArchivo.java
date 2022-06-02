@@ -8,10 +8,12 @@ import ar.unrn.tp3.modelo.PersistenciaParticipantes;
 
 public class ParticipantesEnArchivo implements PersistenciaParticipantes {
 
+	// cargar ruta por constructor
 	@Override
-	public void cargarNuevoParticipante(Participante p) {
+	public boolean cargarNuevoParticipante(Participante p) {
 
 		String dato = p.mostrarDatos();
+		boolean carga = false;
 
 		try {
 
@@ -22,11 +24,14 @@ public class ParticipantesEnArchivo implements PersistenciaParticipantes {
 			escribir.write(dato);
 			escribir.write("\r\n");
 			escribir.close();
+			carga = true;
 
 		} // Si existe un problema al escribir cae aqui
 		catch (Exception e) {
-			System.out.println("Error al escribir");
+			System.out.println("Error al escribir"); // tirar exception
 		}
+
+		return carga;
 
 	}
 

@@ -21,9 +21,9 @@ public class GestorConcurso implements RepositorioConcurso {
 	}
 
 	@Override
-	public void cargarParticipante(String nombre, String apellido, String tel, String dni, String email,
+	public boolean cargarParticipante(String nombre, String apellido, String tel, String dni, String email,
 			int IDConcurso) {
-		participantes.cargarNuevoParticipante(new Participante(nombre, apellido, tel, dni, email, IDConcurso));
+		return participantes.cargarNuevoParticipante(new Participante(nombre, apellido, tel, dni, email, IDConcurso));
 	}
 
 }

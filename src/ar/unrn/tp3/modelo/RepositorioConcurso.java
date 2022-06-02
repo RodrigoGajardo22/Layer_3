@@ -6,7 +6,7 @@ public interface RepositorioConcurso {
 
 	public List<Concurso> todosLosConcursos();
 
-	public void cargarParticipante(String nombre, String apellido, String tel, String dni, String email,
+	public boolean cargarParticipante(String nombre, String apellido, String tel, String dni, String email,
 			int IDConcurso);
 
 }
